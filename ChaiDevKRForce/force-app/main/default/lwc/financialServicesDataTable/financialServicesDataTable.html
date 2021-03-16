@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="Financial Services Account Listing" icon-name="custom:custom10">
+
+        <div class="slds-m-around_medium">
+            <lightning-input type="search" onchange={handleSearchResult} class="slds-m-bottom_small" label="Search" value={searchKey}>
+            </lightning-input>
+
+            <lightning-datatable key-field="Id" data={accountList} columns={columnList} hide-checkbox-column="true"
+                show-row-number-column="true" onsave={handleSave} draft-values={saveDraftValues} onrowaction={handleRowAction}>
+            </lightning-datatable>
+
+            <template if:true={noRecordsFound}>
+                --No Account Records Found--
+            </template>
+
+        </div>
+
+    </lightning-card>
+</template>
